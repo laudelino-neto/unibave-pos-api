@@ -12,6 +12,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
+
 @SpringBootApplication
 public class InitApp {
 
@@ -25,6 +27,11 @@ public class InitApp {
 			
 		};
 	}
+	
+	@Bean
+    public Hibernate5Module jsonHibernate5Module() {
+        return new Hibernate5Module();
+    }
 	
 	@Bean
 	public CorsFilter corsFilter() {
