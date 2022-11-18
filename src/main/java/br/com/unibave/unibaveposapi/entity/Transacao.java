@@ -46,11 +46,11 @@ public class Transacao {
 	
 	@Column(name = "documento")
 	@NotEmpty(message = "O documento é obrigatório")
-	@Size(min = 14, max = 14, message = "O documento deve possuir 14 caracteres")
+	@Size(max = 20, message = "O documento não deve possuir mais de 20 caracteres")
 	private String documento;
 	
 	@Column(name = "valor")
-	@Positive(message = "O valor da transação deve ser maior que zero")
+	//@Positive(message = "O valor da transação deve ser maior que zero")
 	private Integer valor;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -61,6 +61,9 @@ public class Transacao {
 	@Column(name = "nr_telefone")
 	@NotEmpty(message = "O número do telefone é obrigatório")
 	@Size(min = 14, max = 14, message = "O número do telefone deve possuir 14 caracteres")
-	private String numeroDeTelefone;
+	private String numeroDoTelefone;
+	
+	@Column(name = "id_sms")
+	private String idDoSms;
 
 }
